@@ -15,9 +15,13 @@
 
 <!-- This file should primarily consist of HTML with a little bit of PHP. -->
 
-<article>
+<article class="embedhb-entry">
     <header class="embedhb-entry-header">
-        <?php the_title( '<h2 class="embedhb-entry-title"><a href="' . esc_url( $item->get_permalink() ) . '" rel="bookmark">', '</a></h2>' ); ?>
+        <h2 class="embedhb-entry-title">
+            <a href="<?php echo esc_url( $item->get_permalink() ); ?>" title="<?php echo esc_attr( $item->get_title() ); ?>">
+                <?php echo esc_html( $item->get_title() ); ?>
+            </a>
+        </h2>
 
         <div class="embedhb-entry-meta">
             <?php $this->posted_on( $item ); ?>
@@ -27,5 +31,10 @@
     <div class="embedhb-entry-content">
         <?php echo wp_kses_post( $item->get_description() ); ?>
     </div> <!-- .entry-content -->
-</article>
-<hr>
+
+    <footer class="embedhb-entry-footer">
+        <a class="embedhb-entry-button embedhb-entry-link" href="<?php echo esc_url( $item->get_permalink() ); ?>" title="<?php echo esc_attr( $item->get_title() ); ?>">
+            <?php printf('Read More', 'embed_hubspot_blog'); ?>
+        </a> <!-- .embedhb-entry-button -->
+    </footer> <!-- .embedhb-entry-footer -->
+</article> <!-- .embedhb-entry -->

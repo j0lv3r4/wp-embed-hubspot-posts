@@ -147,7 +147,7 @@ class Embed_Hubspot_Blog_Public {
 
 		$time_string = sprintf( $time_string,
 			esc_attr( $item->get_date( DATE_W3C ) ),
-			esc_html( $item->get_date() )
+			esc_html( $item->get_date( 'j F Y' ) )
 		);
 
 		$posted_on = sprintf(
